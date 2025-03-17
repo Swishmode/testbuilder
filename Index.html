@@ -1,0 +1,190 @@
+    <!-- CID Builder -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CJA CID URL Builder</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-50 p-10">
+<div class="max-w-3xl mx-auto bg-white rounded-lg shadow p-8">
+    <h2 class="text-xl font-semibold mb-6">CID Parameter URL Builder</h2>
+
+    <input id="baseUrl" placeholder="Base URL" class="border rounded w-full p-2 mb-4">
+    <input id="promoId" placeholder="Promo ID (6-digit)" class="border rounded w-full p-2 mb-4">
+    <input id="adIdMacro" placeholder="Ad ID Macro (optional)" class="border rounded w-full p-2 mb-4">
+
+    <select id="trafficSource" class="border rounded w-full p-2 mb-4">
+        <option value="">Select Traffic Source (WT.tsrc)</option>
+        <option value="dm">Direct Mail</option>
+        <option value="ds">Display</option>
+        <option value="em">E-Mail</option>
+        <option value="nat">Native Ad</option>
+        <option value="ps">Paid Search</option>
+        <option value="vid">Video</option>
+        <option value="sms">Short Messaging Service</option>
+        <option value="sa">Social Display</option>
+        <option value="oth">Other Campaign</option>
+    </select>
+
+    <select id="campaign" class="border rounded w-full p-2 mb-4">
+        <option value="">Select Campaign (LOB)</option>
+        <option value="b2b">B2B — Business to Business</option>
+        <option value="bp">Build Preference — KP brand-building focus</option>
+        <option value="b2b2c">2nd Sale — 2nd sale of services</option>
+        <option value="feds">FEDS — Health benefits for federal employees</option>
+        <option value="kpsom">KP School of Medicine — KP School of Medicine</option>
+        <option value="kpif">KPIF — KP Individual & Family</option>
+        <option value="mdcr">Medicare — Medicare</option>
+        <option value="mem">Member Marketing — Member Marketing</option>
+        <option value="oth">Other — Line(s) of business not specified</option>
+    </select>
+
+    <select id="region" class="border rounded w-full p-2 mb-4">
+        <option value="">Select Region</option>
+        <option value="natl">National — National campaigns or multiple regions</option>
+        <option value="co">Colorado — Colorado</option>
+        <option value="ga">Georgia — Georgia</option>
+        <option value="hi">Hawaii — Hawaii</option>
+        <option value="ncal">Northern California — Northern California</option>
+	<option value="mas">Mid-Atlantic States — Maryland, Virginia, Washington D.C.</option>
+	<option value="nw">Northwest — Oregon and southwest Washington state</option>
+        <option value="scal">Southern California — Southern California</option>
+        <option value="wa">Washington — Washington state not included in Northwest region</option>
+        <option value="acal">All of California — For use only when NorCal and SoCal cannot be identified separately</option>
+    </select>
+
+    <!-- Additional Dropdowns -->
+    <select id="channel" class="border rounded w-full p-2 mb-4">
+        <option value="">Select Channel</option>
+        <option value="dm">Direct Mail — Direct Mail</option>
+        <option value="ds">Display (Non-Social)</option>
+        <option value="em">E-Mail — E-Mail</option>
+        <option value="nat">Native Ad — Native Advertising</option>
+        <option value="ps">Paid Search — Paid Search</option>
+        <option value="sa">Social Display — Video</option>
+	<option value="sms">Short Messaging Service</option>
+	<option value="oth">Other Campaign — Video</option>
+	<option value="vid">Video — Video</option>
+    </select>
+
+    <!-- Platform Dropdown -->
+    <select id="platform" class="border rounded w-full p-2 mb-4">
+         <option value="">Select Platform/Partner</option>
+    	 <option value="tw">Twitter — Twitter</option>
+   	 <option value="li">LinkedIn — LinkedIn</option>
+   	 <option value="yt">YouTube — YouTube</option>
+   	 <option value="nd">Next Door — Next Door</option>
+   	 <option value="td">Trade Desk — Trade Desk</option>
+   	 <option value="am">Adsmovil — Adsmovil</option>
+   	 <option value="dv">DV360 — DV360</option>
+   	 <option value="gg">GumGum — GumGum</option>
+   	 <option value="ka">Kargo — Kargo</option>
+   	 <option value="le">Leagueside — Leagueside</option>
+   	 <option value="me">Meta — Meta (Facebook/Instagram)</option>
+   	 <option value="pa">Pandora — Pandora</option>
+  	 <option value="re">Reddit — Reddit</option>
+  	 <option value="rw">Russell Westbrook — Russell Westbrook</option>
+  	 <option value="wu">Wunderkind — Wunderkind</option>
+   	 <option value="go">Google — Google</option>
+   	 <option value="bi">Bing — Bing</option>
+   	 <option value="sf">SourceFlow — SourceFlow</option>
+   	 <option value="in">Intensify — Intensify</option>
+   	 <option value="mkt">Marketo — Marketo</option>
+    </select>
+
+    <select id="tactic" class="border rounded w-full p-2 mb-4">
+        <option value="">Select Tactic</option>
+        <option value="bhv">Behavioral</option>
+        <option value="ctxt">Contextual</option>
+        <option value="demo">Demographic</option>
+        <option value="geof">Geo Fencing</option>
+        <option value="inmkt">In Market</option>
+        <option value="lal">Look Alike</option>
+        <option value="rtg">Retargeting</option>
+        <option value="pros">Prospecting</option>
+        <option value="conq">Conquesting</option>
+    </select>
+
+    <select id="audience" class="border rounded w-full p-2 mb-4">
+        <option value="">Select Audience</option>
+        <option value="dig">Digital & Convenience</option>
+        <option value="eff">Efficiency</option>
+        <option value="qua">Quality & Choice</option>
+        <option value="sitevis">Site Visitors</option>
+        <option value="vv">Video Viewers</option>
+        <option value="af">African American</option>
+        <option value="ls">Lifestyle</option>
+        <option value="cst">C-Suite</option>
+        <option value="hmr">HR</option>
+        <option value="del">Dual Eligible</option>
+        <option value="65">65+</option>
+        <option value="64">Under 65</option>
+        <option value="au">Age Unknown</option>
+        <option value="gen">General Market</option>
+        <option value="fmr">Former Member</option>
+        <option value="mdeg">Medicaid Eligibility</option>
+        <option value="afl">Affiliates</option>
+        <option value="cm">Current Member</option>
+        <option value="lg">Mid-Large Groups</option>
+        <option value="sg">Small Groups</option>
+        <option value="bsu">Business Size Unknown</option>
+        <option value="brk">Broker</option>
+    </select>
+
+    <select id="businessObjective" class="border rounded w-full p-2 mb-4">
+        <option value="">Select Business Objective</option>
+        <option value="awr">Awareness — Awareness</option>
+        <option value="cons">Consideration — Consideration</option>
+        <option value="conv">Conversion — Conversion</option>
+        <option value="ret">Retention — Retention</option>
+    </select>
+
+    <button onclick="generateCIDUrl()" class="bg-blue-500 text-white px-4 py-2 rounded mt-2">Generate Final URL</button>
+
+    <textarea id="finalUrl" class="border rounded w-full p-2 mt-4" rows="4" readonly></textarea>
+    <button onclick="copyToClipboard()" class="bg-gray-300 px-3 py-1 rounded mt-2">Copy URL</button>
+</div>
+
+<script>
+f<script>
+function generateCIDUrl() {
+    function getValue(id) {
+        return document.getElementById(id)?.value || '';
+    }
+    
+    const url = getValue('baseUrl');
+    const promoId = getValue('promoId');
+    const adIdMacro = getValue('adIdMacro') || '0';
+    const trafficSource = getValue('trafficSource');
+
+    const cidParts = [
+        'ca-' + getValue('campaign'),
+        're-' + getValue('region'),
+        'ch-' + trafficSource,
+        'pl-' + getValue('platform'),
+        'ta-' + getValue('tactic'),
+        'au-' + getValue('audience'),
+        'bo-' + getValue('businessObjective')
+     ].filter(part => part && part.includes('-')); // Ensures empty values are removed
+    
+    const cidString = cidParts.join('|') + '|ad_id-' + adIdMacro;
+    const finalUrl = `${url}?WT.mc_id=${promoId}&WT.tsrc=${trafficSource}&cid=${cidString}`;
+    
+    document.getElementById('finalUrl').value = finalUrl;
+
+}
+
+function copyToClipboard() {
+    const finalUrl = document.getElementById('finalUrl');
+    finalUrl.select();
+    navigator.clipboard.writeText(finalUrl.value);
+    alert('URL Copied!');
+}
+
+</script>
+</body>
+</html>
+
