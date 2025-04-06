@@ -1,4 +1,5 @@
-    <!-- CID Builder -->
+<!-- CJA Builder -->
+<!-- Babafemi Akinkugbe for KP MAS -->
 
 
 <!DOCTYPE html>
@@ -10,7 +11,7 @@
 </head>
 <body class="bg-gray-50 p-10">
 <div class="max-w-3xl mx-auto bg-white rounded-lg shadow p-8">
-    <h2 class="text-xl font-semibold mb-6">CID Parameter URL Builder</h2>
+    <h2 class="text-xl font-semibold mb-6">CJA Parameter URL Builder</h2>
 
     <input id="baseUrl" placeholder="Base URL" class="border rounded w-full p-2 mb-4">
     <input id="promoId" placeholder="Promo ID (6-digit)" class="border rounded w-full p-2 mb-4">
@@ -49,14 +50,13 @@
         <option value="ga">Georgia — Georgia</option>
         <option value="hi">Hawaii — Hawaii</option>
         <option value="ncal">Northern California — Northern California</option>
-	<option value="mas">Mid-Atlantic States — Maryland, Virginia, Washington D.C.</option>
-	<option value="nw">Northwest — Oregon and southwest Washington state</option>
+        <option value="mas">Mid-Atlantic States — Maryland, Virginia, Washington D.C.</option>
+        <option value="nw">Northwest — Oregon and southwest Washington state</option>
         <option value="scal">Southern California — Southern California</option>
         <option value="wa">Washington — Washington state not included in Northwest region</option>
         <option value="acal">All of California — For use only when NorCal and SoCal cannot be identified separately</option>
     </select>
 
-    <!-- Additional Dropdowns -->
     <select id="channel" class="border rounded w-full p-2 mb-4">
         <option value="">Select Channel</option>
         <option value="dm">Direct Mail — Direct Mail</option>
@@ -65,34 +65,33 @@
         <option value="nat">Native Ad — Native Advertising</option>
         <option value="ps">Paid Search — Paid Search</option>
         <option value="sa">Social Display — Video</option>
-	<option value="sms">Short Messaging Service</option>
-	<option value="oth">Other Campaign — Video</option>
-	<option value="vid">Video — Video</option>
+        <option value="sms">Short Messaging Service</option>
+        <option value="oth">Other Campaign — Video</option>
+        <option value="vid">Video — Video</option>
     </select>
 
-    <!-- Platform Dropdown -->
     <select id="platform" class="border rounded w-full p-2 mb-4">
-         <option value="">Select Platform/Partner</option>
-    	 <option value="tw">Twitter — Twitter</option>
-   	 <option value="li">LinkedIn — LinkedIn</option>
-   	 <option value="yt">YouTube — YouTube</option>
-   	 <option value="nd">Next Door — Next Door</option>
-   	 <option value="td">Trade Desk — Trade Desk</option>
-   	 <option value="am">Adsmovil — Adsmovil</option>
-   	 <option value="dv">DV360 — DV360</option>
-   	 <option value="gg">GumGum — GumGum</option>
-   	 <option value="ka">Kargo — Kargo</option>
-   	 <option value="le">Leagueside — Leagueside</option>
-   	 <option value="me">Meta — Meta (Facebook/Instagram)</option>
-   	 <option value="pa">Pandora — Pandora</option>
-  	 <option value="re">Reddit — Reddit</option>
-  	 <option value="rw">Russell Westbrook — Russell Westbrook</option>
-  	 <option value="wu">Wunderkind — Wunderkind</option>
-   	 <option value="go">Google — Google</option>
-   	 <option value="bi">Bing — Bing</option>
-   	 <option value="sf">SourceFlow — SourceFlow</option>
-   	 <option value="in">Intensify — Intensify</option>
-   	 <option value="mkt">Marketo — Marketo</option>
+        <option value="">Select Platform/Partner</option>
+        <option value="tw">Twitter</option>
+        <option value="li">LinkedIn</option>
+        <option value="yt">YouTube</option>
+        <option value="nd">Next Door</option>
+        <option value="td">Trade Desk</option>
+        <option value="am">Adsmovil</option>
+        <option value="dv">DV360</option>
+        <option value="gg">GumGum</option>
+        <option value="ka">Kargo</option>
+        <option value="le">Leagueside</option>
+        <option value="me">Meta</option>
+        <option value="pa">Pandora</option>
+        <option value="re">Reddit</option>
+        <option value="rw">Russell Westbrook</option>
+        <option value="wu">Wunderkind</option>
+        <option value="go">Google</option>
+        <option value="bi">Bing</option>
+        <option value="sf">SourceFlow</option>
+        <option value="in">Intensify</option>
+        <option value="mkt">Marketo</option>
     </select>
 
     <select id="tactic" class="border rounded w-full p-2 mb-4">
@@ -136,29 +135,43 @@
 
     <select id="businessObjective" class="border rounded w-full p-2 mb-4">
         <option value="">Select Business Objective</option>
-        <option value="awr">Awareness — Awareness</option>
-        <option value="cons">Consideration — Consideration</option>
-        <option value="conv">Conversion — Conversion</option>
-        <option value="ret">Retention — Retention</option>
+        <option value="awr">Awareness</option>
+        <option value="cons">Consideration</option>
+        <option value="conv">Conversion</option>
+        <option value="ret">Retention</option>
     </select>
 
-    <button onclick="generateCIDUrl()" class="bg-blue-500 text-white px-4 py-2 rounded mt-2">Generate Final URL</button>
+    <button onclick="generateCIDUrl()" class="bg-blue-500 text-white px-4 py-2 rounded mt-2">Create Tracking Link</button>
+
+    <!-- Confirmation Modal -->
+    <div id="confirmationModal" class="fixed inset-0 bg-black bg-opacity-30 flex items-center justify-center z-50 hidden">
+      <div class="bg-white rounded-lg shadow-lg max-w-md w-full p-6 text-center relative">
+        <button onclick="closeModal()" class="absolute top-2 right-3 text-gray-400 hover:text-black text-xl">&times;</button>
+        <div class="mb-4">
+          <svg class="mx-auto w-12 h-12 text-green-500" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+          </svg>
+        </div>
+        <h2 class="text-lg font-semibold text-green-700 mb-2">Parameters submitted successfully!</h2>
+        <p class="text-sm text-gray-700">Your analytics code has been created. Please copy to send or share for your campaign.</p>
+        <button onclick="closeModal()" class="mt-4 px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600">OK</button>
+      </div>
+    </div>
 
     <textarea id="finalUrl" class="border rounded w-full p-2 mt-4" rows="4" readonly></textarea>
     <button onclick="copyToClipboard()" class="bg-gray-300 px-3 py-1 rounded mt-2">Copy URL</button>
 </div>
 
 <script>
-f<script>
 function generateCIDUrl() {
     function getValue(id) {
-        return document.getElementById(id)?.value || '';
+        return document.getElementById(id)?.value.trim() || '';
     }
-    
+
     const url = getValue('baseUrl');
-    const promoId = getValue('promoId');
-    const adIdMacro = getValue('adIdMacro') || '0';
-    const trafficSource = getValue('trafficSource');
+    const promoId = getValue('promoId') || '';
+    const adIdMacro = getValue('adIdMacro') || '';
+    const trafficSource = getValue('trafficSource') || 'oth';
 
     const cidParts = [
         'ca-' + getValue('campaign'),
@@ -168,23 +181,37 @@ function generateCIDUrl() {
         'ta-' + getValue('tactic'),
         'au-' + getValue('audience'),
         'bo-' + getValue('businessObjective')
-     ].filter(part => part && part.includes('-')); // Ensures empty values are removed
-    
+    ].filter(part => part && part.includes('-'));
+
     const cidString = cidParts.join('|') + '|ad_id-' + adIdMacro;
     const finalUrl = `${url}?WT.mc_id=${promoId}&WT.tsrc=${trafficSource}&cid=${cidString}`;
     
     document.getElementById('finalUrl').value = finalUrl;
+    showModal();
+}
 
+function showModal() {
+    document.getElementById('confirmationModal').classList.remove('hidden');
+}
+
+function closeModal() {
+    document.getElementById('confirmationModal').classList.add('hidden');
 }
 
 function copyToClipboard() {
     const finalUrl = document.getElementById('finalUrl');
+    finalUrl.focus();
     finalUrl.select();
-    navigator.clipboard.writeText(finalUrl.value);
-    alert('URL Copied!');
+    try {
+        const success = document.execCommand('copy'); // Fallback
+        if (!success) throw new Error("Fallback failed");
+        alert('URL Copied!');
+    } catch (err) {
+        navigator.clipboard.writeText(finalUrl.value)
+            .then(() => alert('URL Copied!'))
+            .catch(() => alert('Failed to copy URL. Please copy manually.'));
+    }
 }
-
 </script>
 </body>
 </html>
-
